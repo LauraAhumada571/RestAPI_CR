@@ -1,0 +1,158 @@
+
+<div class="col-sm-8" >
+  <h3 class="box-title">Listado de las ubicaciones actualmente registradas</h3>
+  <table  class="table table-borderless" *ngFor="let location of locations" id="datos">
+    <tbody>
+      
+      <tr>
+        <td  class="Nombre ubicación" >
+          <div>
+            <p>{{location.name}}</p>
+          </div>
+        </td>
+
+        <td class="vista">
+          <div>
+            <p >{{location.area_m2}}</p>
+          </div>
+        </td> 
+
+        <td  class="vista" >
+          <a id="naranja" class="glyphicon glyphicon-pencil"  (click)="activate_modal_update(location.id)" 
+            data-toggle="modal" data-target="#update_modal" data-tooltip="tooltip" data-placement="top" title="Actualizar dato"> Editar</a>
+        </td> <td  class="vista" >
+           <a id="rojo" class="glyphicon glyphicon-trash" data-toggle="modal" data-target="#delete_modal" data-tooltip="tooltip" data-placement="top" 
+             title="Eliminar dato" (click)="activate_modal_delete(location.id)">Eliminar</a>
+         </td>
+      </tr>
+      
+    </tbody>
+  </table >
+  <br>
+  <button type="submit" class="btn btn-primary" (click)="activate_modal_create()">Crear una ubicación</button>
+</div>
+
+<div class="modal" [style.display]="update_modal ? 'block' : 'none'" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Editar ubicación</h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-body">
+          <form [formGroup]="updateLocationForm" (ngSubmit)="sendUpdateLocation()" autocomplete="off">
+
+            <div class="form-group">
+              <label>Id</label>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <input type="text" formControlName="area_m2" disabled>
+              </div>
+            </div> 
+
+            <div class="form-group">
+              <label>Ubicación</label>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <input type="text" formControlName="name" placeholder="Ubicación">
+              </div>
+            </div> 
+  
+            <div class="form-group">
+              <label>Área m2</label>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <input min="0" max="2147483647" type="text" formControlName="area_m2" placeholder="Área en m2">
+              </div>
+            </div> 
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal" (click)="closeUpdateModal()">
+                Cerrar
+              </button>
+              <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" [style.display]="delete_modal ? 'block' : 'none'" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">El dato que se ha seleccionado se elimininará ¿Está seguro de eliminarlo?</h3>
+      </div>
+
+
+      <div class="modal-body">
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal" (click)="closeDeleteModal()">
+            No
+          </button>
+          <button type="submit" class="btn btn-primary" (click)="sendDeleteLocation()">Si</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" [style.display]="create_modal ? 'block' : 'none'" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Crear una ubicación</h3>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-body">
+          <form [formGroup]="createLocationForm" (ngSubmit)="sendCreateLocation()" autocomplete="off">
+
+            <div class="form-group">
+              <label>Id</label>
+              <div class="input-group">
+                <input type="text" formControlName="id" placeholder="Id">
+              </div>
+            </div> 
+
+            <div class="form-group">
+              <label>Ubicación</label>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <input type="text" formControlName="name" placeholder="Ubicación">
+              </div>
+            </div> 
+  
+            <div class="form-group">
+              <label>Área m2</label>
+              <div class="input-group">
+                <div class="input-group-addon">
+                  <i class="fa fa-user"></i>
+                </div>
+                <input min="0" max="2147483647" type="text" formControlName="area_m2" placeholder="Área en m2">
+              </div>
+            </div> 
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-mdb-dismiss="modal" (click)="closeCreateModal()">
+                Cerrar
+              </button>
+              <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

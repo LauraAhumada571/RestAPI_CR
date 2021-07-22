@@ -1,0 +1,10 @@
+.modal-body{
+    padding-top: 4%;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+a#naranja{
+    color: rgb(247, 173, 62); 
+    cursor: pointer;
+}
