@@ -2,7 +2,6 @@
 const cors = require('cors');
 const ejs = require('ejs');
 const express = require('express');
-//const fileUpload= require('express-fileupload');
 const app = express();
 const router = express.Router();
 
@@ -19,20 +18,6 @@ app.use(express.urlencoded({extended: true}));
 
 //routes
 const locationRoutes = require('./public/service/location/location.routes');
-/*const ofertasRoutes= require('./service/ofertas/ofertas.routes');
-const usuariosRoutes = require('./service/usuarios/usuarios.routes');
-const storage= require('./service/storage/storage.routes');
-const mailSer= require('./service/mail/mail.routes');
-const hv= require('./service/HV/hv.routes');
-const notificaciones = require('./service/notificaciones/notificaciones.routes');
-app.use('/api',router);
-usuariosRoutes(router);
-authRoutes(router);
-ofertasRoutes(router);
-storage(router);
-mailSer(router);
-hv(router);
-notificaciones(router);*/
 app.use('/api',router);
 locationRoutes(router);
 app.use('/static',express.static('file'));

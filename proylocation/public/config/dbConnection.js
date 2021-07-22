@@ -17,12 +17,3 @@ conexion.connect(function(error){
 })
 
 module.exports = conexion;
-/*module.exports = () => {
-  return mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'location'
-  });
-}*/
-
