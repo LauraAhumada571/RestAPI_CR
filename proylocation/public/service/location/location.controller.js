@@ -72,7 +72,8 @@ exports.deleteLocation = (req, res, next) =>{
         return res.status(200).send(msdelete);
     });
 }    
-    
+
+//permite consultar un dato de la tabla loc de la BD location por el id
 exports.findByID = (req, res, next)=>{
     conexion.query(`SELECT *FROM loc WHERE id = ${req.params.id}`, (err, rows, fields) => {
         if(err){
