@@ -28,15 +28,15 @@ Siga los pasos para ejecutar el proyecto
 
         SELECT * FROM LOC;
 
-    6. Configurar puerto de mysql "3306", el host "localhost", user "root", password "", no poner contraseña. 
+    6. Configurar puerto de mysql "3306", el host "localhost", el usuario y la contraseña según correspondan a su servidor de base de datos. 
 
-    Si el puerto de su equipo local es diferente al "3306", cambie el número del puerto en el archivo denominado dbConnection.js
+    Por defecto, el usuario es root y no tiene contraseña, en caso de que estas condiciones sean diferentes, cambie esta infromación en el archivo "dbConnection.js"
 
     5. En una terminal de comandos ejecutar "ipconfig /all" y buscar la ip del equipo local donde se requiere ejecutar el proeyecto
 
-    7. En el archivo denominado server.js cambiar "192.168.0.103" por la ip local de su equipo
+    7. En el archivo denominado server.js cambiar "192.168.0.103" por la IPv4 local de su equipo
 
-    8. En una terminal ubicado en la carpeta proylocation, ejecutar el comando nodemon 
+    8. En una terminal ubicado en la carpeta proylocation, ejecutar el comando "npm start"
 
     9. En la terminal de comandos, ubicarse en la carpeta project y ejecutar el comando "node server.js"
 
